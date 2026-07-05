@@ -57,10 +57,10 @@ async function loginuser (req,res){
     const { username , email , password } = req.body;
 
     const user = await userModel.findOne({
-        $or : [{
-            username,
-            email
-        }]
+        $or : [
+            {username},
+            {email}
+        ]
     })
     if(!user){
         return res.status(400).json({
