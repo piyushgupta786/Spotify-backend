@@ -42,7 +42,7 @@ async function registerUser(req ,res) {
         message : "user registered successfully",
         token,
         user:{
-            id : user._id,
+            userid : user._id,
             username :user.username,
             email : user.email,
             role : user.role,
@@ -88,7 +88,7 @@ async function loginuser (req,res){
         message : "user logged in successfully",
         token,
         user :{
-            id : user._id,
+            userid : user._id,
             username : user.username,
             email : user.email,
             role : user.role

@@ -1,5 +1,6 @@
 const express = require("express");
 const musiccontroller = require("../controllers/music.controller");
+const middleware = require("../middlewares/auth.middleware");
 
 const multer = require("multer");
 
@@ -9,7 +10,9 @@ const upload = multer({
 
 const router = express.Router();
 
-router.post('/upload' , upload.single("music") , musiccontroller.CreateMusic);
+router.post('/upload' ,middleware.authArtist , upload.single("music") , musiccontroller.CreateMusic);
+
+router.post('/Album',  middleware.authArtist , musiccontroller.CreateAlbum);
 
 
 module.exports= router;
