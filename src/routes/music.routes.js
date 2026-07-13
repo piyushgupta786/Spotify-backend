@@ -14,5 +14,7 @@ router.post('/upload' ,middleware.authArtist , upload.single("music") , musiccon
 
 router.post('/Album',  middleware.authArtist , musiccontroller.CreateAlbum);
 
+router.post('/' , musiccontroller.GetAllMusic );
+
 
 module.exports= router;
